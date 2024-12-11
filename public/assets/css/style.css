@@ -1,0 +1,38 @@
+/* Background dengan gambar */
+body {
+    background: url("../img/pexels-pixabay-258154.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 80px; /* Spasi untuk navbar */
+}
+
+/* Style untuk navbar transparan */
+.navbar {
+    background-color: rgba(0, 123, 255, 0.7); /* Biru dengan transparansi */
+    backdrop-filter: blur(10px); /* Blur efek latar belakang */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+}
+
+/* Style untuk login container */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Transparansi untuk efek elegan */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
