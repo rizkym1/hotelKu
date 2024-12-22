@@ -1,4 +1,4 @@
-@extends('layouts.app2_modern', ['title' => 'Tambah Data Kamar'])
+@extends('layouts.app_modern', ['title' => 'Tambah Data Kamar'])
 @section('content')
     <div class="card">
         <div class="card-body">

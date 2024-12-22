@@ -50,7 +50,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('admin.resepsionis.index') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('admin.data-resepsionis.index') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>

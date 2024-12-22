@@ -1,15 +1,16 @@
-@extends('layouts.app_modern', ['title' => 'Data Fasilitas Umum'])
+@extends('layouts.app_modern', ['title' => 'Data Resepsionis'])
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h3>Data Fasilitas Umum</h3>
-            <a href="{{ route('admin.fasilitas-umum.create') }}" class="btn btn-primary">Tambah Data</a>
+            <h3>Data Resepsionis</h3>
+            <a href="{{ route('admin.data-resepsionis.create') }}" class="btn btn-primary">Tambah Data</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Fasilitas</th>
-                        <th>Keterangan</th>
+                        <th>Nama Lengkap</th>
+                        <th>No Telepon</th>
+                        <th>Email</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -17,11 +18,12 @@
                     @foreach ($users as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->fasilitas }}</td>
-                            <td>{{ $item->keterangan }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->no_telp }}</td>
+                            <td>{{ $item->email }}</td>
                             <td class="d-flex align-items-center">
-                                <a href="/admin/fasilitas-umum/{{ $item->id }}/edit" class="btn btn-warning btn-sm me-2">Edit</a>
-                                <form action="/admin/fasilitas-umum/{{ $item->id }}" method="POST" class="d-inline">
+                                <a href="/admin/resepsionis/{{ $item->id }}/edit" class="btn btn-warning btn-sm me-2">Edit</a>
+                                <form action="/admin/data-resepsionis/{{ $item->id }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
@@ -32,7 +34,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {!! $users->Links() !!}
+            {{-- {!! $users->Links() !!} --}}
         </div>
     </div>
 @endsection

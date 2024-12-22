@@ -49,6 +49,30 @@
                 <span class="hide-menu">Fasilitas Umum</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('admin.fasilitas-umum.index') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Fasilitas Umum</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('admin.fasilitas-umum.index') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Fasilitas Umum</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('admin.fasilitas-umum.index') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Fasilitas Umum</span>
+              </a>
+            </li>
             {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="{{ route('admin.kamar.create') }}" aria-expanded="false">
                 <span>

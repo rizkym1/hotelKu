@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DataResepsionisController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\KamarController;
@@ -20,7 +21,7 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'verify'])->
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('kamar', KamarController::class);
     Route::resource('fasilitas-umum', FasilitasUmumController::class);
-    Route::resource('resepsionis', ResepsionisController::class);
+    Route::resource('data-resepsionis', DataResepsionisController::class);
 });
 
 

@@ -1,4 +1,4 @@
-@extends('layouts.app2_modern', ['title' => 'Tambah Data Fasilitas'])
+@extends('layouts.app_modern', ['title' => 'Tambah Data Fasilitas'])
 @section('content')
     <div class="card">
         <div class="card-body">
@@ -13,7 +13,7 @@
                 </div> --}}
                 <div class="form-group mb-3">
                     <label for="fasilitas">Fasilitas</label>
-                    <input id="fasilitas" class="form-control @error('tipe_kamar') is-invalid @enderror" type="text"
+                    <input id="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" type="text"
                         name="fasilitas" value="{{ old('fasilitas') }}">
                     <span class="text-danger">{{ $errors->first('fasilitas') }}</span>
                 </div>
