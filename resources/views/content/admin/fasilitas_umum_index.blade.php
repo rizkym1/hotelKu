@@ -20,8 +20,8 @@
                             <td>{{ $item->fasilitas }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td class="d-flex align-items-center">
-                                <a href="/admin/fasilitas-umum/{{ $item->id }}/edit" class="btn btn-warning btn-sm me-2">Edit</a>
-                                <form action="/admin/fasilitas-umum/{{ $item->id }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.fasilitas-umum.edit', $item->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
+                                <form action="{{ route('admin.fasilitas-umum.destroy', $item->id) }}}}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"

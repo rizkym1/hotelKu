@@ -1,9 +1,9 @@
-@extends('layouts.app_modern', ['title' => 'Data Resepsionis'])
+@extends('layouts.app_modern', ['title' => 'Data Admin'])
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h3>Data Resepsionis</h3>
-            <a href="{{ route('admin.data-resepsionis.create') }}" class="btn btn-primary">Tambah Data</a>
+            <h3>Data Admin</h3>
+            <a href="#" class="btn btn-primary">Tambah Data</a>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -15,26 +15,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($resepsionis as $item)
+                    @foreach ($users as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->no_telp }}</td>
                             <td>{{ $item->email }}</td>
                             <td class="d-flex align-items-center">
-                                <a href="{{ route('admin.data-resepsionis.edit', $item->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
-                                <form action="/admin/data-resepsionis/{{ $item->id }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Anda Yakin?')">Hapus</button>
-                                </form>
+                                <a href="#" class="btn btn-info btn-sm me-2">Detail</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{-- {!! $users->Links() !!} --}}
+            {{-- {!! $fasilitas_umum->Links() !!} --}}
         </div>
     </div>
 @endsection

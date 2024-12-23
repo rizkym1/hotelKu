@@ -26,8 +26,8 @@
                             <td>{{ $item->stok_kamar }}</td>
                             <td>{{ $item->harga }}</td>
                             <td class="d-flex align-items-center">
-                                <a href="/admin/kamar/{{ $item->id }}/edit" class="btn btn-warning btn-sm me-2">Edit</a>
-                                <form action="/admin/kamar/{{ $item->id }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.kamar.edit', $item->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
+                                <form action="{{ route('admin.kamar.destroy', $item->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
