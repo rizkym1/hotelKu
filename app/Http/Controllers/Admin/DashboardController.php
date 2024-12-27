@@ -4,23 +4,29 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DataAdmin;
+use App\Models\DataResepsionis;
+use App\Models\DataTamu;
+use App\Models\Kamar;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class DataAdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        
-        // Filter data dengan level 'admin'
-    $users = DataAdmin::where('level', 'admin')->get();
+{
+    // // Menghitung jumlah tamu dengan level 'tamu'
+    // $totalTamu = User::where('level', 'user')->count();
+    // $totalAdmin = User::where('level', 'admin')->count();
+    // $totalKamar = Kamar::count();
+    // $totalResepsionis = User::where('level', 'resepsionis')->count();
 
-    // Kirim data admin ke view
-    return view('content.admin.data_admin_index', compact('users'));
-    }
+    // Kirim data ke view
+    return view('layouts.app_modern');
+}
+
 
     /**
      * Show the form for creating a new resource.

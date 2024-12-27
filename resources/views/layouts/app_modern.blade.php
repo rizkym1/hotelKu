@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ env('APP_NAME') }}</title>
+  <title>HotelKu</title>
   <link rel="shortcut icon" type="image/png" href="/modern/src/assets/images/logos/favicon.png" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/modern/src/assets/css/styles.min.css" />
-</head>
+  </head>
 
 <body>
   <!--  Body Wrapper -->
@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="#" class="text-nowrap logo-img">
             <h3 class="mt-3">HotelKu</h3>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -123,6 +123,7 @@
           </div>
         </nav>
       </header>
+      
       <!--  Header End -->
 
       <div class="container-fluid">
@@ -137,7 +138,7 @@
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Total Tamu</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">150</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalTamu'] }}</span>
               </div>
             </div>
           </div>
@@ -151,7 +152,7 @@
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Total Tipe Kamar</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">150</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalKamar'] }}</span>
               </div>
             </div>
           </div>
@@ -167,7 +168,7 @@
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Total Admin</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">150</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalAdmin'] }}</span>
               </div>
             </div>
           </div>
@@ -182,7 +183,7 @@
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Total Resepsionis</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">150</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalResepsionis'] }}</span>
               </div>
             </div>
           </div>
@@ -192,8 +193,7 @@
       @include('flash::message')
       @yield('content')
     </div>
-  </div>
-
+  </div> 
   <script src="/modern/src/assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="/modern/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/modern/src/assets/js/sidebarmenu.js"></script>

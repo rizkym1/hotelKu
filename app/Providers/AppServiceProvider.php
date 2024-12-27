@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Kamar;
+use App\Models\User;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -21,5 +24,22 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
+        
+            // Menghitung jumlah tamu dengan level 'tamu'
+        // $totalTamu = User::where('level', 'user')->count();
+        // $totalAdmin = User::where('level', 'admin')->count();
+        // $totalKamar = Kamar::count();
+        // $totalResepsionis = User::where('level', 'resepsionis')->count();
+        
+        View::composer('*', function ($view) {
+            $data = [
+                'totalTamu' => User::where('level', 'user')->count(),
+                'totalAdmin' => User::where('level', 'admin')->count(),
+                'totalKamar' => Kamar::count(),
+                'totalResepsionis' => User::where('level', 'resepsionis')->count()
+            ];
+
+            return $view->with('data', $data);
+        });
     }
 }

@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h3>Data Admin</h3>
-            <a href="#" class="btn btn-primary">Tambah Data</a>
+            {{-- <a href="#" class="btn btn-primary">Tambah Data</a> --}}
             <table class="table table-striped">
                 <thead>
                     <tr>

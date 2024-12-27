@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataAdminController;
 use App\Http\Controllers\Admin\DataResepsionisController;
 use App\Http\Controllers\Admin\DataTamuController;
@@ -12,7 +13,7 @@ use App\Models\DataTamu;
 
 // Rute untuk halaman utama yang menampilkan view 'welcome'
 Route::get('/', function () {
-    return view('welcome'); // Mengembalikan tampilan 'welcome'
+    return view('auth.login'); // Mengembalikan tampilan 'welcome'
 });
 
 // Rute untuk halaman login, hanya dapat diakses oleh pengguna yang belum login (guest)
@@ -22,12 +23,13 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'verify'])->
 
 // Rute yang hanya dapat diakses oleh admin yang sudah terautentikasi
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('index', DataTamuController::class);
+    Route::resource('home', DataTamuController::class);
     Route::resource('data-admin', DataAdminController::class);
     Route::resource('data-resepsionis', DataResepsionisController::class);
     Route::resource('data-tamu', DataTamuController::class);
     Route::resource('kamar', KamarController::class);
     Route::resource('fasilitas-umum', FasilitasUmumController::class);
+    Route::resource('dashboard', DashboardController::class);
 });
 
 
