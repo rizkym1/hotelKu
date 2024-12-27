@@ -54,6 +54,10 @@
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" />
             </div>
             <div class="mb-3">
+                <label for="no_telp" class="form-label">No Telepon</label>
+                <input type="number" class="form-control" id="no_telp" name="no_telp" value="{{ old('no_telp') }}" />
+            </div>
+            <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="username" class="form-control" id="username" name="username"
                     value="{{ old('username') }}" />

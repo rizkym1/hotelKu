@@ -16,6 +16,7 @@ class UserRegisterRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+            'no_telp' => 'required|string|regex:/^[0-9\-\+]{10,15}$/',
             'username' => 'required|string|unique:users,username|max:255',
             'password' => 'required|string|min:8|confirmed', // Memastikan password dan konfirmasi password sama
         ];

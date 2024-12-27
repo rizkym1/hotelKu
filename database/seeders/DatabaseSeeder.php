@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('user'),
         // ]);
 
-        \App\Models\FasilitasUmum::factory(10)->create();
+        // \App\Models\Kamar::factory(10)->create();
     }
 }

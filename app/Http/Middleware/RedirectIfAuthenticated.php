@@ -30,7 +30,7 @@ class RedirectIfAuthenticated extends RedirectIfAuthenticatedMiddleware
         // Memeriksa apakah pengguna sudah terautentikasi sebagai resepsionis
         else if (Auth::guard('resepsionis')->check()) {
             // Jika ya, alihkan ke dashboard resepsionis
-            return redirect(route('resepsionis.dashboard.index'));
+            return redirect(route('resepsionis.data-reservasi.index'));
         }
         // Memeriksa apakah pengguna sudah terautentikasi sebagai user biasa
         else if (Auth::guard('user')->check()) {

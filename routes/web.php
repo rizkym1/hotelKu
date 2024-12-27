@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\KamarController;
 use \App\Http\Controllers\Admin\FasilitasUmumController;
 use App\Http\Controllers\Admin\ResepsionisController;
+use App\Http\Controllers\Resepsionis\DataReservasiController;
+use App\Models\DataReservasi;
 use App\Models\DataTamu;
 
 // Rute untuk halaman utama yang menampilkan view 'welcome'
@@ -32,12 +34,10 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin', 'as' => 'admin.
     Route::resource('dashboard', DashboardController::class);
 });
 
-
-// Rute yang hanya dapat diakses oleh resepsionis yang sudah terautentikasi
-Route::group(['middleware' => 'auth:resepsionis'], function () {
-    // Rute untuk halaman dashboard resepsionis
-    Route::get('/resepsionis/home', [\App\Http\Controllers\Resepsionis\ResepsionisController::class, 'index'])->name('resepsionis.dashboard.index');
+Route::group(['middleware' => 'auth:resepsionis', 'prefix' => 'resepsionis', 'as' => 'resepsionis.'], function () {
+    Route::resource('data-reservasi', DataReservasiController::class);
 });
+// Rute yang hanya dapat diakses oleh resepsionis yang sudah terautentikasi
 
 // Rute yang hanya dapat diakses oleh pengguna biasa yang sudah terautentikasi
 Route::group(['middleware' => 'auth:user'], function () {
