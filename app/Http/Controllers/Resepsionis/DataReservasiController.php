@@ -11,18 +11,25 @@ class DataReservasiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-         // Ambil data reservasi beserta data user (tamu) dengan eager loading
-        $reservasis = DataReservasi::with('user') // Mengambil data user yang terkait
+        $reservasis = DataReservasi::with('user')
         ->whereHas('user', function ($query) {
-            // Filter data user berdasarkan level "tamu"
-            $query->where('level', 'user');
-        })
-        ->get(); // Ambil semua data reservasi
+            $query->where('level', 'user'); // level tamu
+        });
 
-    // Kirim data ke view
-    return view('content.resepsionis.data_reservasi_index', compact('reservasis'));
+    if ($request->has('search') && !empty($request->search)) {
+        $search = $request->search;
+
+        // Filter pencarian berdasarkan nama user
+        $reservasis->whereHas('user', function ($query) use ($search) {
+            $query->where('name', 'LIKE', '%' . $search . '%');
+        });
+    }
+
+    $reservasis = $reservasis->get();
+
+    return view('content.resepsionis.data_reservasi_index', compact('reservasis', 'request'));
     }
 
     /**
@@ -44,9 +51,13 @@ class DataReservasiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        // Ambil data reservasi berdasarkan ID
+        $reservasi = DataReservasi::with('user')->findOrFail($id);
+
+        // Kirim data ke view
+        return view('content.resepsionis.detail_data_reservasi_index', compact('reservasi'));
     }
 
     /**

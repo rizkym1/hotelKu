@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\DataReservasi;
 use App\Models\Kamar;
 use App\Models\User;
 use Illuminate\Support\Facades\View;
@@ -40,6 +41,16 @@ class AppServiceProvider extends ServiceProvider
             ];
 
             return $view->with('data', $data);
+        });
+
+        View::composer('*', function ($view) {
+            $item = [
+                'totalTamu' => User::where('level', 'user')->count(),
+                'totalCheck_in' => DataReservasi::count(),
+                'totalCheck_out' => DataReservasi::count()
+            ];
+
+            return $view->with('item', $item);
         });
     }
 }

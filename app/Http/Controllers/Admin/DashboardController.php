@@ -24,7 +24,7 @@ class DashboardController extends Controller
     // $totalResepsionis = User::where('level', 'resepsionis')->count();
 
     // Kirim data ke view
-    return view('layouts.app_modern');
+    // return view('layouts.app_modern');
 }
 
 

@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin', 'as' => 'admin.
     Route::resource('data-tamu', DataTamuController::class);
     Route::resource('kamar', KamarController::class);
     Route::resource('fasilitas-umum', FasilitasUmumController::class);
-    Route::resource('dashboard', DashboardController::class);
+    // Route::resource('dashboard', DashboardController::class);
 });
 
 Route::group(['middleware' => 'auth:resepsionis', 'prefix' => 'resepsionis', 'as' => 'resepsionis.'], function () {

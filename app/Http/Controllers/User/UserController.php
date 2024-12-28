@@ -10,6 +10,6 @@ class UserController extends Controller
 {
     public function index(): View
     {
-        return view('content.user.dashboard');
+        return view('content.tamu.dashboard');
     }
 }

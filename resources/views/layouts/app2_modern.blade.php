@@ -8,6 +8,18 @@
   <link rel="shortcut icon" type="image/png" href="/modern/src/assets/images/logos/favicon.png" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/modern/src/assets/css/styles.min.css" />
+  <style>
+    table.table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    /* table.table-bordered th,
+    table.table-bordered td {
+        border: 1px solid #dee2e6;
+        padding: 8px;
+    } */
+</style>
+
   </head>
 
 <body>
@@ -106,7 +118,7 @@
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Total Tamu</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalTamu'] }}</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $item['totalTamu'] }}</span>
               </div>
             </div>
           </div>
@@ -118,12 +130,12 @@
             <div class="info-box d-flex align-items-center">
               <!-- Icon -->
               <span class="info-box-icon bg-success elevation-1 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;">
-                <i class="fas fa-users fa-2x"></i>
+                <i class="fa-solid fa-user-check fa-2x"></i>
               </span>
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Check In Hari ini</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalAdmin'] }}</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $item['totalCheck_in'] }}</span>
               </div>
             </div>
           </div>
@@ -133,12 +145,12 @@
             <div class="info-box d-flex align-items-center">
               <!-- Icon -->
               <span class="info-box-icon bg-warning elevation-1 d-flex justify-content-center align-items-center" style="width: 50px; height: 50px;">
-                <i class="fas fa-users fa-2x"></i>
+                <i class="fa-solid fa-user-check fa-2x"></i>
               </span>
               <!-- Content -->
               <div class="info-box-content ms-3">
                 <span class="info-box-text" style="font-size: 16px;">Check Out Hari Ini</span><!-- Adding margin-top to give space between the text and number -->
-                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $data['totalResepsionis'] }}</span>
+                <span class="info-box-number" style="font-size: 20px; font-weight: bold; display: block; margin-top: 10px;">{{ $item['totalCheck_out'] }}</span>
               </div>
             </div>
           </div>

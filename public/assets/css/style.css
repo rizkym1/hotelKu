@@ -1,6 +1,7 @@
 /* Background dengan gambar */
 body {
-    background: url("../img/pexels-pixabay-258154.jpg") no-repeat center center fixed;
+    background: url("../img/pexels-pixabay-258154.jpg") no-repeat center center
+        fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -35,4 +36,3 @@ body {
 .navbar {
     margin-bottom: 2rem;
 }
-
