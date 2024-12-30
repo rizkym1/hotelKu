@@ -14,17 +14,17 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark w-100 position-fixed top-0">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">HotelKu</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container position-relative">
+            <a class="navbar-brand fw-bold" href="{{ route('index') }}">HotelKu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Right Menu -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('register') }}">Daftar</a>
+                        <a class="nav-link" href="{{ route('register') }}">Daftar</a>
                     </li>
                 </ul>
             </div>

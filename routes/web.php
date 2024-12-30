@@ -9,14 +9,18 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\KamarController;
 use \App\Http\Controllers\Admin\FasilitasUmumController;
 use App\Http\Controllers\Admin\ResepsionisController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Resepsionis\DataReservasiController;
 use App\Models\DataReservasi;
 use App\Models\DataTamu;
 
 // Rute untuk halaman utama yang menampilkan view 'welcome'
 Route::get('/', function () {
-    return view('auth.login'); // Mengembalikan tampilan 'welcome'
+    return view('index'); // Mengembalikan tampilan 'welcome'
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
 
 // Rute untuk halaman login, hanya dapat diakses oleh pengguna yang belum login (guest)
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'index'])->name('login')->middleware('guest');

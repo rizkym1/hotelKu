@@ -9,14 +9,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-    
-    
+   
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container position-relative">
-            <a class="navbar-brand fw-bold" href="#">HotelKu</a>
+            <a class="navbar-brand" href="#">HOTEL HEBAT</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,19 +30,14 @@
                     </li>
                 </ul>
                 <!-- Right Menu -->
-                <ul class="navbar-nav ms-auto nav-kanan fw-bold">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ $user->name }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-scroll" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="reservasi.php">Reservasi</a></li>
-                            <li><a class="dropdown-item" href="{{ route('logout') }}">Keluar</a></li>
-                        </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Masuk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Daftar</a>
                     </li>
                 </ul>
-                
             </div>
         </div>
     </nav>
