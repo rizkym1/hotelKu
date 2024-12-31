@@ -11,6 +11,7 @@ use \App\Http\Controllers\Admin\FasilitasUmumController;
 use App\Http\Controllers\Admin\ResepsionisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Resepsionis\DataReservasiController;
+use App\Http\Controllers\user\UserController;
 use App\Models\DataReservasi;
 use App\Models\DataTamu;
 
@@ -20,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/kamar', [HomeController::class, 'kamar'])->name('kamar'); // Halaman kamar
 
 
 // Rute untuk halaman login, hanya dapat diakses oleh pengguna yang belum login (guest)
@@ -47,6 +49,8 @@ Route::group(['middleware' => 'auth:resepsionis', 'prefix' => 'resepsionis', 'as
 Route::group(['middleware' => 'auth:user'], function () {
     // Rute untuk halaman dashboard pengguna
     Route::get('/user/home', [\App\Http\Controllers\User\UserController::class, 'index'])->name('user.dashboard.index');
+    Route::get('/user/kamar', [UserController::class, 'kamar'])->name('kamar.user'); // Halaman kamar
+
 });
 
 // Rute untuk menampilkan form registrasi pengguna

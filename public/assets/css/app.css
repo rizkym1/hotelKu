@@ -221,12 +221,12 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-footer {
+/* footer {
     background: var(--primary-color);
     color: white;
     padding: 30px 0;
     text-align: center;
-}
+} */
 
 @media (max-width: 991px) {
     .navbar-center {
@@ -261,4 +261,71 @@ footer {
 
 .dropdown-scroll::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
+}
+
+.room-card {
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+    height: 100%;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.room-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.facility-card {
+    text-align: center;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: scale(1.05);
+}
+
+/* .facility-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 1rem;
+} */
+
+.btn-pesan {
+    background-color: #0d6efd;
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-pesan:hover {
+    background-color: #0b5ed7;
+    color: white;
+}
+
+.section-title {
+    text-align: center;
+    margin: 3rem 0;
+    color: #333;
+}
+
+footer {
+    background-color: #0d6efd;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }

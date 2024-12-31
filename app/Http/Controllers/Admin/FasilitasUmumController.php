@@ -32,7 +32,15 @@ class FasilitasUmumController extends Controller
         $requestData = $request->validate([
             'fasilitas' => 'required',
             'keterangan' => 'required',
+            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2000',
         ]);
+
+         // Upload foto
+         if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $path = $file->store('uploads/fasilitas', 'public'); // Menyimpan ke storage/app/public/uploads/kamar
+            $requestData['foto'] = $path; // Menyimpan path foto ke array $requestData
+        }
 
         $kamar = new \App\Models\FasilitasUmum();
         $kamar->fill($requestData);

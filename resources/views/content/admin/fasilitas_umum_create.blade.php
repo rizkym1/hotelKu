@@ -5,12 +5,12 @@
             <h3>Form Fasilitas Umum</h3>
             <form action="{{ route('admin.fasilitas-umum.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                {{-- <div class="form-group mb-3">
-                    <label for="foto">Foto Kamar</label>
+                <div class="form-group mb-3">
+                    <label for="foto">Foto Fasilitas</label>
                     <input id="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
                         name="foto">
                     <span class="text-danger">{{ $errors->first('foto') }}</span>
-                </div> --}}
+                </div>
                 <div class="form-group mb-3">
                     <label for="fasilitas">Fasilitas</label>
                     <input id="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" type="text"

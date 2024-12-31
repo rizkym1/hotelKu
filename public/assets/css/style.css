@@ -13,9 +13,9 @@ body {
 
 /* Style untuk navbar transparan */
 .navbar {
-    background-color: rgba(0, 123, 255, 0.7); /* Biru dengan transparansi */
-    backdrop-filter: blur(10px); /* Blur efek latar belakang */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+    background-color: #0d6efd !important;
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
 
 /* Style untuk login container */

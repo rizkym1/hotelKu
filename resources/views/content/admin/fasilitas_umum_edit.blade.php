@@ -6,14 +6,14 @@
             <form action="{{ route('admin.fasilitas-umum.update', $fasilitas_umum->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                {{-- <div class="form-group mb-3">
-                    <label for="foto">Foto Kamar</label>
+                <div class="form-group mb-3">
+                    <label for="foto">Foto Fasilitas</label>
                     <input id="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
                         name="foto">
                     <span class="text-danger">{{ $errors->first('foto') }}</span>
-                    <img src="{{ asset('storage/' . $kamar->foto) }}" alt="Foto Kamar" class="img-thumbnail mt-2"
+                    <img src="{{ asset('storage/' . $fasilitas_umum->foto) }}" alt="Foto Kamar" class="img-thumbnail mt-2"
                         style="width: 100px">
-                </div> --}}
+                </div>
                 <div class="form-group mb-3">
                     <label for="fasilitas">Fasilitas</label>
                     <input id="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" type="text"

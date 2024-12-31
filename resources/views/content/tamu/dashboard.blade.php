@@ -24,10 +24,10 @@
                 <!-- Center Menu -->
                 <ul class="navbar-nav navbar-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Beranda</a>
+                        <a class="nav-link" href="{{ route('user.dashboard.index') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kamar</a>
+                        <a class="nav-link" href="{{ route('kamar.user') }}">Kamar</a>
                     </li>
                 </ul>
                 <!-- Right Menu -->
