@@ -79,6 +79,6 @@ class AuthController extends Controller
             Auth::guard('user')->logout(); // Logout untuk user
         }
         notify()->info('Anda berhasil Logout!');
-        return redirect(route('index')); // Mengarahkan kembali ke halaman login setelah logout
+        return redirect(route('user.dashboard.index')); // Mengarahkan kembali ke halaman login setelah logout
     }
 }

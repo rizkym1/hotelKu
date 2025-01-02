@@ -11,6 +11,7 @@ use \App\Http\Controllers\Admin\FasilitasUmumController;
 use App\Http\Controllers\Admin\ResepsionisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Resepsionis\DataReservasiController;
+use App\Http\Controllers\User\ReservasiController;
 use App\Http\Controllers\user\UserController;
 use App\Models\DataReservasi;
 use App\Models\DataTamu;
@@ -46,13 +47,14 @@ Route::group(['middleware' => 'auth:resepsionis', 'prefix' => 'resepsionis', 'as
 // Rute yang hanya dapat diakses oleh resepsionis yang sudah terautentikasi
 
 // Rute yang hanya dapat diakses oleh pengguna biasa yang sudah terautentikasi
-Route::group(['middleware' => 'auth:user'], function () {
-    // Rute untuk halaman dashboard pengguna
-    Route::get('/user/home', [\App\Http\Controllers\User\UserController::class, 'index'])->name('user.dashboard.index');
-    Route::get('/user/kamar', [UserController::class, 'kamar'])->name('kamar.user'); // Halaman kamar
-
+Route::group(['middleware' => 'auth:user', 'prefix' => 'user', 'as' => 'user.'], function () {
+    Route::get('/home', [\App\Http\Controllers\User\UserController::class, 'index'])->name('dashboard.index');
+    Route::get('/kamar', [UserController::class, 'kamar'])->name('kamar.user'); // Halaman kamar
+    Route::get('/boking', [UserController::class, 'boking'])->name('boking.user');
+    Route::resource('reservasi', ReservasiController::class);
+    // Route::get('reservasi', [UserController::class, 'reservasi']);
 });
-
+    
 // Rute untuk menampilkan form registrasi pengguna
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 

@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{{ route('user.dashboard.index') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('kamar.user') }}">Kamar</a>
+                        <a class="nav-link" href="{{ route('user.kamar.user') }}">Kamar</a>
                     </li>
                 </ul>
                 <!-- Right Menu -->
@@ -38,7 +38,7 @@
                             {{ $user->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-scroll" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="reservasi.php">Reservasi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.reservasi.index') }}">Reservasi</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}">Keluar</a></li>
                         </ul>
                     </li>
@@ -165,7 +165,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; Copyright 2022 Rizky Maulana</p>
+            <p>&copy; Copyright 2024 Rizkym</p>
         </div>
     </footer>
 

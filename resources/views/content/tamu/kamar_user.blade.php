@@ -40,7 +40,7 @@
                             {{ $user->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-scroll" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="reservasi.php">Reservasi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.reservasi.index') }}">Reservasi</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}">Keluar</a></li>
                         </ul>
                     </li>
@@ -67,7 +67,7 @@
                           <li>{{ $fas }}</li>
                           @endforeach
                       </ul>
-                      <button class="btn btn-pesan">Pesan Sekarang</button>
+                      <a href="{{ route('user.boking.user', ['id' => $item->id]) }}" class="btn btn-pesan">Pesan Sekarang</a>
                   </div>
               </div>
           </div>
