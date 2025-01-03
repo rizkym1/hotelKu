@@ -124,91 +124,108 @@
         <div class="container">
             <h2 class="text-center mb-4">Hasil Reservasi Anda</h2>
             <p class="text-center mb-5">Berikut adalah informasi reservasi terakhir Anda.</p>
-            
+    
             <div class="booking-content">
                 <!-- Booking Form -->
                 <form class="booking-form" method="POST" data-aos="fade-left">
                     @csrf
+                    <!-- Tampilkan pesan sukses -->
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
     
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="tipe_kamar" class="form-label">Tipe Kamar</label>
-                                <input id="tipe_kamar" name="tipe_kamar" type="text" class="form-control" value="{{ $reservasi->tipe_kamar }}" readonly>
+                    <!-- Tampilkan pesan jika belum ada reservasi -->
+                    @if ($message)
+                        <div class="alert alert-warning">
+                            {{ $message }}
+                        </div>
+                    @endif
+    
+                    <!-- Jika ada reservasi, tampilkan detailnya -->
+                    @if ($reservasi)
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tipe_kamar" class="form-label">Tipe Kamar</label>
+                                    <input id="tipe_kamar" name="tipe_kamar" type="text" class="form-control" value="{{ $reservasi->tipe_kamar }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="harga" class="form-label">Harga</label>
+                                    <input id="harga" name="harga" type="text" class="form-control" value="{{ number_format($reservasi->harga, 0, ',', '.') }}" readonly>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="harga" class="form-label">Harga</label>
-                                <input id="harga" name="harga" type="text" class="form-control" value="{{ number_format($reservasi->harga, 0, ',', '.') }}" readonly>
+    
+                        <div class="form-group">
+                            <label for="jumlah_kamar" class="form-label">Jumlah Kamar</label>
+                            <input id="jumlah_kamar" name="jumlah_kamar" type="text" class="form-control" value="{{ $reservasi->jumlah_kamar }}" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input id="username" name="username" type="text" class="form-control" value="{{ $reservasi->user->username ?? '-' }}" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" name="email" type="email" class="form-control" value="{{ $reservasi->user->email ?? '-' }}" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input id="name" name="name" type="text" class="form-control" value="{{ $reservasi->user->name ?? '-' }}" readonly>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <textarea id="alamat" name="alamat" class="form-control" rows="3" readonly>{{ $reservasi->alamat ?? '-' }}</textarea>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="no_telp" class="form-label">No Telepon</label>
+                            <input id="no_telp" name="no_telp" type="tel" class="form-control" value="{{ $reservasi->user->no_telp ?? '-' }}" readonly>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="check_in" class="form-label">Check In</label>
+                                    <input id="check_in" name="check_in" type="date" class="form-control" value="{{ $reservasi->check_in }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="check_out" class="form-label">Check Out</label>
+                                    <input id="check_out" name="check_out" type="date" class="form-control" value="{{ $reservasi->check_out }}" readonly>
+                                </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="form-group">
-                        <label for="jumlah_kamar" class="form-label">Jumlah Kamar</label>
-                        <input id="jumlah_kamar" name="jumlah_kamar" type="text" class="form-control" value="{{ $reservasi->jumlah_kamar }}" readonly>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="username" class="form-label">Username</label>
-                        <input id="username" name="username" type="text" class="form-control" value="{{ $reservasi->user->username }}" readonly>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input id="email" name="email" type="email" class="form-control" value="{{ $reservasi->user->email }}" readonly>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="name" class="form-label">Nama Lengkap</label>
-                        <input id="name" name="name" type="text" class="form-control" value="{{ $reservasi->user->name }}" readonly>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <textarea id="alamat" name="alamat" class="form-control" rows="3" readonly>{{ $reservasi->alamat }}</textarea>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="no_telp" class="form-label">No Telepon</label>
-                        <input id="no_telp" name="no_telp" type="tel" class="form-control" value="{{ $reservasi->user->no_telp }}" readonly>
-                    </div>
-    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="check_in" class="form-label">Check In</label>
-                                <input id="check_in" name="check_in" type="date" class="form-control" value="{{ $reservasi->check_in }}" readonly>
-                            </div>
+                        <div class="form-group">
+                            <label for="lama_inap" class="form-label">Lama Inap</label>
+                            <input id="lama_inap" name="lama_inap" type="text" class="form-control" value="{{ $reservasi->lama_inap }}" readonly>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="check_out" class="form-label">Check Out</label>
-                                <input id="check_out" name="check_out" type="date" class="form-control" value="{{ $reservasi->check_out }}" readonly>
-                            </div>
+    
+                        <div class="form-group">
+                            <label for="total_biaya" class="form-label">Total Biaya</label>
+                            <input id="total_biaya" name="total_biaya" type="text" class="form-control" value="{{ number_format($reservasi->total_bayar, 0, ',', '.') }}" readonly>
                         </div>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="lama_inap" class="form-label">Lama Inap</label>
-                        <input id="lama_inap" name="lama_inap" type="text" class="form-control" value="{{ $reservasi->lama_inap }}" readonly>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="total_biaya" class="form-label">Total Biaya</label>
-                        <input id="total_biaya" name="total_biaya" type="text" class="form-control" value="{{ number_format($reservasi->total_bayar, 0, ',', '.') }}" readonly>
-                    </div>
-                    <a type="submit" class="btn btn-primary btn-block">Cetak Hasil Reservasi</a>
+                        <a href="{{ route('reservasi.cetak', $reservasi->id) }}" class="btn btn-primary btn-block">Cetak Hasil Reservasi</a>
+                    @else
+                        <!-- Jika tidak ada reservasi -->
+                        <div class="alert alert-info">
+                            Anda belum melakukan reservasi. Silakan buat reservasi terlebih dahulu.
+                        </div>
+                    @endif
                 </form>
             </div>
         </div>
     </section>
+    
 
     <!-- Footer -->
     <footer>

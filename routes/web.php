@@ -52,8 +52,11 @@ Route::group(['middleware' => 'auth:user', 'prefix' => 'user', 'as' => 'user.'],
     Route::get('/kamar', [UserController::class, 'kamar'])->name('kamar.user'); // Halaman kamar
     Route::get('/boking', [UserController::class, 'boking'])->name('boking.user');
     Route::resource('reservasi', ReservasiController::class);
+    
+
     // Route::get('reservasi', [UserController::class, 'reservasi']);
 });
+Route::get('/reservasi/{id}/cetak', [ReservasiController::class, 'cetakReservasi'])->name('reservasi.cetak');
     
 // Rute untuk menampilkan form registrasi pengguna
 Route::get('/register', [AuthController::class, 'register'])->name('register');

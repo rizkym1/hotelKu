@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Hebat</title>
+    <title>HotelKu</title>
     <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -54,7 +54,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-4 mb-4">Selamat Datang</h1>
-                    <p class="lead mb-4">Di website resmi Official Hotel Hebat. Nikmati diskon dan promo yang berlimpah dihotel kami menggunakan Voucher yang ada. Booking 1 bayar 1 Booking 2 bayar 2. Hari Sabtu Gratis tapi kami libur.</p>
+                    <p class="lead mb-4">Di website resmi Official HotelKu. Nikmati diskon dan promo yang berlimpah dihotel kami menggunakan Voucher yang ada. Booking 1 bayar 1 Booking 2 bayar 2. Hari Sabtu Gratis tapi kami libur.</p>
                     <button class="btn btn-primary">Pesan Sekarang</button>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -108,7 +108,7 @@
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="about-content">
                         <h2>Tentang Kami</h2>
-                        <p>Hotel Hebat adalah hotel yang berdiri sejak tidak kebagian kursi yang terletak di pusat kota Banjar. Hotel ini merupakan hotel bintang tiga yang berlokasi strategis di pusat kota Banjar. Lokasi yang sempurna dan akses mudah ke daerah wisata membuat pengunjung dapat sambil bekerja dan berlibur. Hotel ini memiliki total 20 kamar yang terdiri atas 7 Kamar Superior, 45 Kamar Deluxe, 4 Suite Junior, dan 2 Suite Eksekutif.</p>
+                        <p>HotelKu adalah hotel yang berdiri sejak tidak kebagian kursi yang terletak di pusat kota Banjar. Hotel ini merupakan hotel bintang tiga yang berlokasi strategis di pusat kota Banjar. Lokasi yang sempurna dan akses mudah ke daerah wisata membuat pengunjung dapat sambil bekerja dan berlibur. Hotel ini memiliki total 20 kamar yang terdiri atas 7 Kamar Superior, 45 Kamar Deluxe, 4 Suite Junior, dan 2 Suite Eksekutif.</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <h4>Alamat</h4>
-                            <p>Jl. Hotel Hebat No. 123, Kota Banjar</p>
+                            <p>Jl. HotelKu No. 123, Kota Banjar</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -135,7 +135,7 @@
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <h4>Email</h4>
-                            <p>info@hotelhebat.com</p>
+                            <p>info@hotelku.com</p>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kamar;
 use App\Models\Reservasis;
 use App\Models\TipeKamar; // Asumsikan model untuk tabel `kamars`
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -16,18 +17,32 @@ class ReservasiController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-         // Ambil data reservasi milik user yang sedang login
+{
+    // Ambil user yang sedang login
     $user = Auth::user();
-    $reservasi = Reservasis::where('user_id', $user->id)->latest()->first(); // Ambil reservasi terakhir
 
-    // Pastikan ada data reservasi
-    if ($reservasi) {
-        return view('content.tamu.reservasi_user', compact('reservasi', 'user'));
-    } else {
-        return redirect()->route('user.reservasi.index')->with('error', 'Anda belum memiliki reservasi.');
-    }
-    }
+    // Ambil reservasi terakhir milik user
+    $reservasi = Reservasis::where('user_id', $user->id)->latest()->first();
+
+    // Jika tidak ada reservasi, kirim pesan ke view
+    $message = $reservasi ? null : 'Anda belum memiliki reservasi.';
+
+    // Tampilkan halaman reservasi
+    return view('content.tamu.reservasi_user', compact('reservasi', 'user', 'message'));
+}
+
+public function cetakReservasi($id)
+{
+    // Ambil data reservasi berdasarkan ID
+    $reservasi = Reservasis::with('user')->findOrFail($id);
+
+    // Generate PDF menggunakan view khusus
+    $pdf = Pdf::loadView('content.tamu.cetak', compact('reservasi'))
+    ->setPaper([0, 0, 450, 600], 'portrait');
+    // Unduh file PDF
+    return $pdf->stream('Reservasi-' . $reservasi->id . '.pdf');
+}
+
 
     /**
      * Store a newly created resource in storage.
