@@ -143,10 +143,10 @@
                 <th>Total Biaya</th>
                 <td class="important">Rp {{ number_format($reservasi->total_bayar, 0, ',', '.') }}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th>Status</th>
                 <td>{{ ucfirst($reservasi->status) }}</td>
-            </tr>
+            </tr> --}}
         </table>
     </div>
 

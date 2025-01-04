@@ -1,88 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotelKu - Booking Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-    <style>
-        .booking-section {
-            padding: 2rem 0;
-            margin-top: 5rem;
-        }
-        .booking-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        .room-preview {
-            flex: 1 1 40%;
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        .room-preview img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .booking-form {
-            flex: 1 1 55%;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-label {
-            font-weight: 500;
-            color: #333;
-        }
-        .form-control {
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            transition: all 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-        }
-        .btn-booking {
-            background-color: #0d6efd;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            border: none;
-            font-weight: 500;
-            float: right;
-            transition: all 0.3s ease;
-        }
-        .btn-booking:hover {
-            background-color: #0b5ed7;
-            transform: translateY(-2px);
-        }
-        footer {
-            background-color: #0d6efd;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        @media (max-width: 768px) {
-            .booking-content {
-                flex-direction: column;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HotelKu - Booking</title>
+    
+        <!-- Favicon -->
+        {{-- <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"> --}}
+        <!-- Jika menggunakan PNG -->
+        <link rel="icon" href="{{ asset('assets/img/hotel.png') }}" type="image/png">
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- AOS CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}?v={{ time() }}">
+    
+        <<style>
+            .booking-section {
+                padding: 2rem 0;
+                margin-top: 5rem;
             }
-        }
-    </style>
-</head>
+            .booking-content {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            .room-preview {
+                flex: 1 1 40%;
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            .room-preview img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            .booking-form {
+                flex: 1 1 55%;
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 2rem;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            .form-label {
+                font-weight: 500;
+                color: #333;
+            }
+            .form-control {
+                padding: 0.8rem;
+                border-radius: 5px;
+                border: 1px solid #ddd;
+                transition: all 0.3s ease;
+            }
+            .form-control:focus {
+                border-color: #0d6efd;
+                box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+            }
+            .btn-booking {
+                background-color: #0d6efd;
+                color: white;
+                padding: 0.8rem 2rem;
+                border-radius: 5px;
+                border: none;
+                font-weight: 500;
+                float: right;
+                transition: all 0.3s ease;
+            }
+            .btn-booking:hover {
+                background-color: #0b5ed7;
+                transform: translateY(-2px);
+            }
+            footer {
+                background-color: #0d6efd;
+                color: white;
+                padding: 1rem 0;
+                text-align: center;
+                margin-top: 3rem;
+            }
+            @media (max-width: 768px) {
+                .booking-content {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
