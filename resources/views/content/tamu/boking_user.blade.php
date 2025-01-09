@@ -241,36 +241,47 @@
             once: true
         });
         document.addEventListener("DOMContentLoaded", function () {
-        const checkInInput = document.getElementById("check_in"); // Input tanggal Check-In
-        const checkOutInput = document.getElementById("check_out"); // Input tanggal Check-Out
-        const lamaInapInput = document.getElementById("lama_inap"); // Input Lama Inap
-        const totalBiayaInput = document.getElementById("total_bayar"); // Input Total Biaya
-        const hargaInput = document.getElementById("harga"); // Input Harga Kamar
-        const jumlahKamarInput = document.getElementById("jumlah_kamar"); // Input Jumlah Kamar
+    const checkInInput = document.getElementById("check_in");
+    const checkOutInput = document.getElementById("check_out");
+    const lamaInapInput = document.getElementById("lama_inap");
+    const totalBiayaInput = document.getElementById("total_bayar");
+    const hargaInput = document.getElementById("harga");
+    const jumlahKamarInput = document.getElementById("jumlah_kamar");
 
-    // Menambahkan event listener untuk mendeteksi ketika di ubah pada input
+    // Add event listeners
     checkInInput.addEventListener("change", hitungLamaInapDanBiaya);
     checkOutInput.addEventListener("change", hitungLamaInapDanBiaya);
     jumlahKamarInput.addEventListener("change", hitungLamaInapDanBiaya);
 
-    // Fungsi untuk menghitung lama inap dan biaya
     function hitungLamaInapDanBiaya() {
-        const checkInDate = new Date(checkInInput.value); // Ambil tanggal Check-In
-        const checkOutDate = new Date(checkOutInput.value); // Ambil tanggal Check-Out
-        const harga = parseInt(hargaInput.value.replace(/[^0-9]/g, '')); // Ambil harga kamar
-        const jumlahKamar = parseInt(jumlahKamarInput.value); // Ambil jumlah kamar
+        const checkInDate = new Date(checkInInput.value);
+        const checkOutDate = new Date(checkOutInput.value);
+        
+        // Remove formatting from harga value (remove dots and Rp)
+        const hargaString = hargaInput.value.replace(/[^0-9]/g, '');
+        const harga = parseInt(hargaString);
+        const jumlahKamar = parseInt(jumlahKamarInput.value);
 
-        // Jika tanggal valid, hitung lama inap dan total biaya
         if (checkInDate && checkOutDate && checkOutDate > checkInDate) {
-            const diffTime = checkOutDate - checkInDate; // Hitung selisih waktu
-            const lamaInap = diffTime / (1000 * 60 * 60 * 24); // Hitung lama inap dalam hari
+            // Calculate the difference in milliseconds
+            const diffTime = Math.abs(checkOutDate - checkInDate);
+            // Convert to days
+            const lamaInap = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-            // Tampilkan lama inap dan total biaya
+            // Display nights count
             lamaInapInput.value = lamaInap + " malam";
+
+            // Calculate total cost
             const totalBiaya = harga * jumlahKamar * lamaInap;
-            totalBiayaInput.value = totalBiaya.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+
+            // Format the total cost as Indonesian currency
+            totalBiayaInput.value = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(totalBiaya);
         } else {
-            // Jika tanggal tidak valid, kosongkan input
             lamaInapInput.value = "";
             totalBiayaInput.value = "";
         }
