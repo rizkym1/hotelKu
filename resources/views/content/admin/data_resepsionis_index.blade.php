@@ -11,6 +11,7 @@
                         <th>Nama Lengkap</th>
                         <th>No Telepon</th>
                         <th>Email</th>
+                        <th>Username</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->no_telp }}</td>
                             <td>{{ $item->email }}</td>
+                            <td>{{ $item->username }}</td>
                             <td class="d-flex align-items-center">
                                 <a href="{{ route('admin.data-resepsionis.edit', $item->id) }}" class="btn btn-warning btn-sm me-2">Edit</a>
                                 <form action="/admin/data-resepsionis/{{ $item->id }}" method="POST" class="d-inline">

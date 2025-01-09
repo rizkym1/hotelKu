@@ -11,7 +11,7 @@
                         <th>Nama Lengkap</th>
                         <th>No Telepon</th>
                         <th>Email</th>
-                        <th>Aksi</th>
+                        <th>Username</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,9 +21,10 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->no_telp }}</td>
                             <td>{{ $item->email }}</td>
-                            <td class="d-flex align-items-center">
+                            <td>{{ $item->username }}</td>
+                            {{-- <td class="d-flex align-items-center">
                                 <a href="#" class="btn btn-info btn-sm me-2">Detail</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                 </tbody>

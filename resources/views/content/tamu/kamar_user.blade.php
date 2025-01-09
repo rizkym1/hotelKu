@@ -21,7 +21,11 @@
     
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}?v={{ time() }}">
-
+        <style>
+            body {
+                padding-top: 100px;
+            }
+        </style>
     </head>
 <body>
     <!-- Updated Navbar -->

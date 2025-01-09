@@ -59,7 +59,7 @@
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-4 mb-4">Selamat Datang</h1>
                     <p class="lead mb-4">Di website resmi Official HotelKu. Nikmati diskon dan promo yang berlimpah dihotel kami menggunakan Voucher yang ada. Booking 1 bayar 1 Booking 2 bayar 2. Hari Sabtu Gratis tapi kami libur.</p>
-                    <button class="btn btn-primary">Pesan Sekarang</button>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Pesan Sekarang</a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <img src="{{ asset('assets/img/hero.png') }}" alt="Hero Image" class="img-fluid rounded-3">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <button class="btn btn-primary">Pesan</button>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Pesan</a>
                 </div>
             </div>
         </div>

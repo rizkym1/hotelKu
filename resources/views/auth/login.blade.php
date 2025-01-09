@@ -34,6 +34,11 @@
     <!-- Login Form -->
     <div class="form-container mt-5 pt-5">
         <h3 class="text-center mb-4">Masuk</h3>
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         @if (session('msg'))
             <div class="alert alert-danger">
                 {{ session('msg') }}

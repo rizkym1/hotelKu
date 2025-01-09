@@ -78,7 +78,7 @@
                           <li>{{ $fas }}</li>
                           @endforeach
                       </ul>
-                      <button class="btn btn-pesan">Pesan Sekarang</button>
+                      <a href="{{ route('login') }}" class="btn btn-pesan">Pesan Sekarang</a>
                   </div>
               </div>
           </div>

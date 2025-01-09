@@ -51,21 +51,23 @@ class AuthController extends Controller
     }
 
     public function registerUser(UserRegisterRequest $request): RedirectResponse
-    {
-        // Validasi data yang diterima
-        $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
+{
+    // Validasi data yang diterima
+    $data = $request->validated();
+    $data['password'] = bcrypt($data['password']);
 
-        // Tambahkan level user
-        $data['level'] = 'user';
+    // Tambahkan level user
+    $data['level'] = 'user';
 
-        // Simpan data pengguna baru
-        User::create($data);
+    // Simpan data pengguna baru
+    User::create($data);
 
+    // Tambahkan pesan sukses ke session flash
+    return redirect()
+        ->route('login')
+        ->with('success', 'Anda berhasil daftar akun, silakan login!');
+}
 
-        notify()->success('Anda berhasil daftar akun silahkan login!');
-        return redirect()->route('login');
-    }
 
 
     public function logout(): RedirectResponse
